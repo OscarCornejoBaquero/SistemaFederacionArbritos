@@ -1,0 +1,48 @@
+.app-sidebar__user-avatar{
+    width: 4rem;
+    padding: 4px;
+}
+
+.app-sidebar__toggle{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15pt;
+}
+
+.btn-primary-formato {
+    color: #FFF;
+    background-color: #272b30;
+    border-color: #272b30;
+}
+.page-item.active .page-link {
+    z-index: 1;
+    color: rgb(0, 0, 0);
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #f7b842;
+    background-color: #FFF;
+    border: 1px solid #dee2e6;
+}
+.headerRegister{
+    background: #f7b842;
+    color: white;
+}
+.headerUpdate{
+    background: #17a2b8;
+    color: white;
+}
+.notBlock{
+    display: none;
+}

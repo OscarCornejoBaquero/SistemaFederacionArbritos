@@ -53,7 +53,7 @@ class Mysql extends Conexion{
         if($respuestaExecute){
             $lastInsert = $this->conexion->lastInsertId();
         }
-        return $lastInsert;
+        return $respuestaExecute;
     }
 
     //Eliminar registro 

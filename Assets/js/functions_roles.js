@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
         //Accion que previene que la página se recarge al momento de dar clic en submit
         e.preventDefault();
         //Asignación de los datos a las variables para su uso en la funcion
+        var intId_rol = document.querySelector('#id_rol').value;
         var strNombre = document.querySelector('#txtNombre').value;
         var strDescripcion = document.querySelector('#txtDescripcion').value;
         var intStatus = document.querySelector('#listStatus').value;
@@ -53,7 +54,15 @@ document.addEventListener('DOMContentLoaded', function(){
         //Asignacion del tipo de navegador en la variable request 
         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
         //Variable ajax con URl que obtiene el query realizado 
-        var ajaxUrl = base_url+'Roles/setRol';
+        if(intId_rol>0){
+            var ajaxUrl = base_url+'Roles/editRol';
+        }
+        if(intId_rol==0){
+            var ajaxUrl = base_url+'Roles/setRol';
+        }
+        
+        
+        
         var formData = new FormData(formRol);
         //Captura de los datos usando el metodo POST
         request.open("POST",ajaxUrl,true);
@@ -74,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     tableRoles.api().ajax.reload(function(){
                         fntEditRol();
                         fntDelRol();
-                        fntPermiso();
+                        //fntPermiso();
                     });
                 }else{
                     //Mensaje de error en caso de fallo en el query
@@ -105,6 +114,7 @@ function openModal(){
 window.addEventListener("load", function() {
     setTimeout(() => { 
         fntEditRol();
+        fntDelRol();
     }, 500);
   }, false);
 
@@ -154,6 +164,52 @@ function fntEditRol(){
                 }
             }
             $('#modalFormRol').modal('show');
+        });
+    });
+}
+
+function fntDelRol(){
+    var btnDelRol = document.querySelectorAll(".btnDelRol");
+    btnDelRol.forEach(function(btnDelRol){
+        btnDelRol.addEventListener('click',function(){
+            var id_rol = this.getAttribute("rl");
+            sweetAlert(
+                {
+                    title: "Eliminar Rol", 
+                    text: "Realmente desea Eliminar el ROL",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Si, Eliminar",
+                    cancelButtonText: "No, Cancelar",
+                    closeOnConfirm: false,
+                    closeOnCancel: true
+                }, function(isConfirm){
+                    if(isConfirm){
+                        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+                        var ajaxUrl = base_url+'Roles/delRol/';
+                        var strData = "id_rol="+id_rol;
+                        
+                        request.open("POST",ajaxUrl,true);
+                        request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                        request.send(strData);
+                        
+                        request.onreadystatechange = function(){
+                            
+                            if(request.readyState == 4 && request.status == 200){
+                                var objData = JSON.parse(request.responseText);
+                                if(objData.status){
+                                    sweetAlert("Eliminar", objData.msg,"success");
+                                    tableRoles.api().ajax.reload(function(){
+                                        fntEditRol();
+                                        fntDelRol();
+                                    });
+                                }else{
+                                    sweetAlert("Atención!", objData.msg,"error");
+                                }
+                            }
+                        }
+                    }
+                });    
         });
     });
 }

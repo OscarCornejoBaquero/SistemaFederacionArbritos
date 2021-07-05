@@ -14,50 +14,50 @@
         
         <li class="treeview">
           <a class="app-menu__item" href="#" data-toggle="treeview">
-            <i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Administración</span><i class="treeview-indicator fa fa-angle-right"></i>
+          
+            <i class="app-menu__icon fas fa-tools"></i><span class="app-menu__label">Administración</span><i class="treeview-indicator fa fa-angle-right"></i>
           </a>
               <ul class="treeview-menu">
-                <li><a class="treeview-item" href="<?=base_url()?>usuarios"><i class="icon fa fa-circle-o"></i> Usuarios</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>roles"><i class="icon fa fa-circle-o"></i> Roles de Usuario</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>sistema"><i class="icon fa fa-circle-o"></i> Configuración Sistema</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>federacion"><i class="icon fa fa-circle-o"></i> Federación</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>usuarios"><i class="icon fas fa-users"></i> Usuarios</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>roles"><i class="icon fas fa-user-tag"></i> Roles de Usuario</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>sistema"><i class="icon fas fa-cogs"></i> Configuración Sistema</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>federacion"><i class="icon fas fa-expand-arrows-alt"></i> Federación</a></li>
               </ul>
         </li>
 
 
         <li class="treeview">
           <a class="app-menu__item" href="#" data-toggle="treeview">
-            <i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Colegiados</span><i class="treeview-indicator fa fa-angle-right"></i>
+          
+            <i class="app-menu__icon fas fa-people-arrows"></i><span class="app-menu__label">Colegiados</span><i class="treeview-indicator fa fa-angle-right"></i>
           </a>
               <ul class="treeview-menu">
-                <li><a class="treeview-item" href="<?=base_url()?>nuevo_colegiado"><i class="icon fa fa-circle-o"></i> Nuevo Colegiado</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>administracion_colegiados"><i class="icon fa fa-circle-o"></i> Administración Colegiados</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>reporte_colegiados"><i class="icon fa fa-circle-o"></i> Reporte Colegiados</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>administracion_colegiados"><i class="icon fas fa-user-shield"></i> Administración Colegiados</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>administracion_asistencias"><i class="icon fas fa-spell-check"></i> Administración Asistencias</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>reporte_colegiados"><i class="icon fas fa-list-ol"></i> Reporte Colegiados</a></li>
           </ul>
         </li>
 
 
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Clubes</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a class="treeview-item" href="<?=base_url()?>nuevo_club"><i class="icon fa fa-circle-o"></i> Nuevo Club</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>administracion_clubs"><i class="icon fa fa-circle-o"></i> Administración Clubes</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>reporte_clubs"><i class="icon fa fa-circle-o"></i> Reporte Clubes</a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fas fa-layer-group"></i><span class="app-menu__label">Clubes</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">            
+                <li><a class="treeview-item" href="<?=base_url()?>administracion_clubs"><i class="icon fas fa-toolbox"></i> Administración Clubes</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>reporte_clubs"><i class="icon fas fa-list"></i> Reporte Clubes</a></li>
               </ul>
         </li>
 
 
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Partidos</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a class="treeview-item" href="<?=base_url()?>nuevo_partido"><i class="icon fa fa-circle-o"></i> Nuevo Partidos</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>administracion_partidos"><i class="icon fa fa-circle-o"></i> Administración Partidos</a></li>
-                <li><a class="treeview-item" href="<?=base_url()?>reporte_partidos"><i class="icon fa fa-circle-o"></i> Reporte Partidos</a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fas fa-scroll"></i><span class="app-menu__label">Partidos</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">              
+                <li><a class="treeview-item" href="<?=base_url()?>administracion_partidos"><i class="icon fas fa-digital-tachograph"></i> Administración Partidos</a></li>
+                <li><a class="treeview-item" href="<?=base_url()?>reporte_partidos"><i class="icon fas fa-clipboard-list"></i> Reporte Partidos</a></li>
               </ul>
         </li>
 
-        <li><a class="app-menu__item" href="<?=base_url()?>sorteo_partidos"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Sorteo Partidos</span></a></li>
+        <li><a class="app-menu__item" href="<?=base_url()?>sorteo_partidos"><i class="app-menu__icon fas fa-dice"></i><span class="app-menu__label">Sorteo Partidos</span></a></li>
+                                                                    
+        <li><a class="app-menu__item" href="<?=base_url()?>gestion_encuestas"><i class="app-menu__icon fas fa-question"></i><span class="app-menu__label">Encuestas</span></a></li>         
         
-        <li><a class="app-menu__item" href="<?=base_url()?>gestion_encuestas"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Encuestas</span></a></li>         
-      
-        <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Docs</span></a></li>
+        <li><a class="app-menu__item" href="#"><i class="app-menu__icon far fa-copyright"></i><span class="app-menu__label">Sobre los Autores</span></a></li>
       </ul>
     </aside>

@@ -47,5 +47,50 @@
              }
              return $return;
          }
+         
+         public function updateRol(int $id_rol, string $rol, string $descripcion, int $status)
+         {
+            $sql = "SELECT * FROM rol WHERE nombre_rol = '$rol' AND id_rol != '$id_rol'";
+            $request = $this->select_all($sql);
+            if(empty($request)){
+                $sql = "UPDATE rol SET nombre_rol = ?, descripcion_rol = ?, status = ? WHERE id_rol = '$id_rol'";
+                $arrData = array($rol,$descripcion,$status);
+                $request = $this->update($sql,$arrData);
+            }else{
+                $request ="exist";
+            }
+            return $request;
+         }
+         
+         //Funcion para eliminar Ususarios 
+         public function deleteRol(int $id_rol)
+         {
+            $request = $this->validarRolDel($id_rol);
+            if(empty($request)){
+                $sql = "UPDATE rol SET status = ? WHERE id_rol = '$id_rol'";
+                $arrData = array(0);
+                $requestDel = $this->update($sql,$arrData);
+                $request = $this->respuestaDel($requestDel);
+            }else{
+                $request = 'exist';
+            }
+            return $request;
+         }
+
+         
+         public function respuestaDel($request){
+            if($request){
+                $request = 'ok';
+                }else{
+                $request = 'error';
+                }
+                return $request;
+         }
+
+         public function validarRolDel(int $id_rol){
+            $sql = "SELECT * FROM usuario WHERE rol_id = '$id_rol'";
+            $request = $this->select_all($sql);
+            return $request;
+         }
     }
 ?>

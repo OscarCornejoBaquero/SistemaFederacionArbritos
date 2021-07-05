@@ -66,27 +66,76 @@ class Roles extends Controllers{
     public function setRol(){
         //Limpia el texto agregado en los inputs 
         //para eliminar espacios y caracteres no especiales 
-        //Se asignan los valores dle metodo POST a variables locales 
+        //Se asignan los valores dle metodo POST a variables locales
+        $intId_Rol = intval($_POST['id_rol']);
         $strRol = strClean($_POST['txtNombre']);
         $strDescripcion = strClean($_POST['txtDescripcion']);
         $intStatus = intval($_POST['listStatus']);
         //Llamado al metodo insertar rol del modelo 
         $request_rol = $this->model->insertRol($strRol,$strDescripcion,$intStatus);
+        
         //validacion de la respuesta obtenida
-        if($request_rol>0){
+        if($request_rol > 0){
             //mensaje si la respuesta es positiva 
-            $arrResponse = array('status' => true, 'msg' => 'Datos Guardados Correctamente');
+            $arrResponse = array('status' => true, 'msg' => 'Datos Guardados Correctamente desde el crear');
         }else if($request_rol == 'exist'){
             //Mensaje si el rol es igual a otro 
             $arrResponse = array('status' => false, 'msg' => '¡Atención el Rol ya Existe!');
         }else{       
             //Mensaje de fallo 
+            
             $arrResponse = array('status' => true, 'msg' => 'No es Posible Almcenar los Datos');
         }
         //Impresion de los datos en formato JSON y mostrar en la tabla
         echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
         die();
     }
+    public function editRol(){
+        //Limpia el texto agregado en los inputs 
+        //para eliminar espacios y caracteres no especiales 
+        //Se asignan los valores dle metodo POST a variables locales
+        $intId_Rol = intval($_POST['id_rol']);
+        $strRol = strClean($_POST['txtNombre']);
+        $strDescripcion = strClean($_POST['txtDescripcion']);
+        $intStatus = intval($_POST['listStatus']);
+        //Llamado al metodo insertar rol del modelo 
+        $request_rol = $this->model->updateRol($intId_Rol, $strRol,$strDescripcion,$intStatus);
+        
+        //validacion de la respuesta obtenida
+        if($request_rol > 0){
+            //mensaje si la respuesta es positiva 
+            $arrResponse = array('status' => true, 'msg' => 'Datos Actualizados Correctamente');
+        }else if($request_rol == 'exist'){
+            //Mensaje si el rol es igual a otro 
+            $arrResponse = array('status' => false, 'msg' => '¡Atención el Rol ya Existe!');
+        }else{       
+            //Mensaje de fallo 
+            
+            $arrResponse = array('status' => true, 'msg' => 'No es Posible Almcenar los Datos');
+        }
+        //Impresion de los datos en formato JSON y mostrar en la tabla
+        echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+    public function delRol(){
+        if($_POST){
+            $intId_Rol = intval($_POST['id_rol']);
+            $request_Delete = $this->model->deleteRol($intId_Rol);
+            $arrResponse = $this->respuestaArrayDel($request_Delete);
+            echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        }
+        die();
+    }
 
+    public function respuestaArrayDel($request_Delete){
+        if($request_Delete == 'ok'){
+            $arrResponse = array('status' => true, 'msg' => 'Se ha Eliminado el ROL.');
+        }else  if($request_Delete == 'exist'){
+            $arrResponse = array('status' => false, 'msg' => 'No es posible eliminar un Rol Asociado a Usuarios.');
+        }else{
+            $arrResponse = array('status' => false, 'msg' => 'Error al Eliminar el Rol.');
+        }
+        return $arrResponse;
+    }
 }
 ?>

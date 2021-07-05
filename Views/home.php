@@ -15,7 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Federación de Arbritos</title>
-    <link rel="icon" type="image/png" href="archivos/img/icono.png" />
+    <link rel="icon" type="image/png" href="<?php echo media();?>archivos/img/icono.png" />
     <link rel="stylesheet" href="<?php echo BASE_URL;?>Librerias/css/estiloshome/slideshow.home.css">
     <link rel="stylesheet" href="<?php echo BASE_URL;?>Librerias/css/estiloshome/home.css">
     <link rel="stylesheet" href="<?php echo BASE_URL;?>Librerias/css/estiloshome/normalize.css">

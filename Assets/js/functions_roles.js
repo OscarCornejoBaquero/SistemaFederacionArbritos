@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
     //Ajax que permite agregar a la variable URL la url del Modelo que se hace el trabajo 
     //con la base de datos
     "ajax":{
-        "url": " "+base_url+"Roles/getRoles",
+        "url": " "+base_url+"Roles/getAll",
         "dataSrc":""
     },
     //Definicion de las columnas de la tabla donde se mostraran los datos
@@ -55,10 +55,10 @@ document.addEventListener('DOMContentLoaded', function(){
         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
         //Variable ajax con URl que obtiene el query realizado 
         if(intId_rol>0){
-            var ajaxUrl = base_url+'Roles/editRol';
+            var ajaxUrl = base_url+'Roles/editRegistro';
         }
         if(intId_rol==0){
-            var ajaxUrl = base_url+'Roles/setRol';
+            var ajaxUrl = base_url+'Roles/setRegistro';
         }
         
         
@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
 });
+
 //Metodo que permite abrir el modal para ingreso de datos de un nuevo rol 
 $('#tableRoles').DataTable();
 function openModal(){
@@ -136,7 +137,7 @@ function fntEditRol(){
             //Acciones para capturar el ID 
             var id_rol = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ?new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var ajaxetUser = base_url+'Roles/getRol/'+id_rol;
+            var ajaxetUser = base_url+'Roles/getIndividual/'+id_rol;
             request.open("GET",ajaxetUser,true);
             request.send();
 
@@ -186,7 +187,7 @@ function fntDelRol(){
                 }, function(isConfirm){
                     if(isConfirm){
                         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-                        var ajaxUrl = base_url+'Roles/delRol/';
+                        var ajaxUrl = base_url+'Roles/delRegistro/';
                         var strData = "id_rol="+id_rol;
                         
                         request.open("POST",ajaxUrl,true);

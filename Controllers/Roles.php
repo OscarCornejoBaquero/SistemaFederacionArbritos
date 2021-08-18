@@ -35,6 +35,12 @@ class Roles extends Controllers implements Crud{
         return $arrData;
     }
 
+    //Funcion de prueba para tutoria 
+    public function tutoria()
+    {
+        echo "funcion de prueba";
+    }
+
     //Funcion para Consultar un Rol Unico 
     public function getIndividual($id_rol)
     {
